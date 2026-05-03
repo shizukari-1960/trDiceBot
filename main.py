@@ -9,6 +9,7 @@ import re
 
 import tools
 import sw
+import inf
 import api_cnt
 
 load_dotenv()
@@ -40,15 +41,17 @@ async def on_message(message: discord.message.Message):
         sys,cmd = ctx[0].lstrip('!'), ctx[1]
         
         #await message.channel.send(sw.comment_parse(cmd))
-        await message.channel.send(api_cnt.roll_dice(sys, cmd))
-
-
-        
+        ct = api_cnt.roll_dice(sys, cmd)
+        if ct:
+            await message.channel.send(ct)
     
-
-
-
-
+    if message.content.startswith('.'):
+        pattern_inf = r"\.(\d+)wd(\d+)?"
+        match_inf = re.search(pattern_inf, message.content, re.IGNORECASE)
+        if match_inf:
+            ct = inf.roll_inf(message.content)
+            if ct:
+                await message.channel.send(ct)
 
 
 token = os.environ.get('TOKEN')

@@ -1,5 +1,7 @@
 import random
 from os import chdir, path
+from sympy import sympify
+
 chdir(path.dirname(path.abspath(__file__)))
 
 def dn(n) -> int:
@@ -68,6 +70,10 @@ def xndmplus(comm:str):
             return None
     
     return f'{comm}: {'+'.join(phr)} + {plsum} > **{total+plsum}**'
+
+def eval_eq(eq):
+    return sympify(eq)
+
 
 
 if __name__ == '__main__':

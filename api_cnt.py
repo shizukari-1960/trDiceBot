@@ -30,7 +30,7 @@ def roll_dice(sys:str, cmd:str) -> str:
         
     except requests.exceptions.RequestException as e:
         print('Api fail:', e)
-        return 'API fail. Bad format.'
+        return None
 
 
 if __name__ == '__main__':
