@@ -159,6 +159,8 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+hear.py
+hear.bat
 
 # Pyre type checker
 .pyre/
